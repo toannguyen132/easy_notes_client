@@ -4,12 +4,16 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const dotenv = require('dotenv');
 
 // Remove this line once the following warning goes away (it was meant for webpack loader authors not users):
 // 'DeprecationWarning: loaderUtils.parseQuery() received a non-string value which can be problematic,
 // see https://github.com/webpack/loader-utils/issues/56 parseQuery() will be replaced with getOptions()
 // in the next major version of loader-utils.'
 process.noDeprecation = true;
+
+const env = dotenv.config().parsed;
+console.log(env.API_URL);
 
 module.exports = options => ({
   mode: options.mode,
@@ -125,6 +129,7 @@ module.exports = options => ({
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        API_URL: JSON.stringify(env.API_URL),
       },
     }),
   ]),
