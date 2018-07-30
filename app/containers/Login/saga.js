@@ -1,4 +1,4 @@
-import { takeLatest, call, put, select } from 'redux-saga/effects';
+import { takeLatest, select } from 'redux-saga/effects';
 import axios from 'axios';
 
 import { LOGIN } from './constants';
@@ -17,7 +17,7 @@ export function* login() {
     },
   };
   //
-  axios({
+  yield axios({
     url,
     headers: { 'Content-Type': 'application/json' },
     method: 'POST',

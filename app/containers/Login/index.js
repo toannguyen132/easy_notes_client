@@ -15,7 +15,7 @@ import Button from 'components/Button';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectLogin, { selectEmail } from './selectors';
+import makeSelectLogin from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import { login } from './actions';
@@ -99,7 +99,7 @@ export class Login extends React.PureComponent {
 }
 
 Login.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  // dispatch: PropTypes.func.isRequired,
   doLogin: PropTypes.func.isRequired,
 };
 
